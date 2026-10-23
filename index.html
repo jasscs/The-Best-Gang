@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    ============================================================
+    ✏️ QUICK EDIT GUIDE
+    1. Page title + link previews: edit the <title> and meta tags below.
+    2. Invitation text + details: look for "EDIT:" comments in the body.
+    3. Colors, pattern size, and animations: edit style.css.
+    4. Share button behaviour: edit script.js.
+    5. After deploying, replace og:image with the FULL URL of
+       assets/og-image.png so Messenger/GC can load the preview.
+    ============================================================
+  -->
+
+  <!-- EDIT: text shown in the browser tab -->
+  <title>Bonding Tayo! 🐱💕</title>
+
+  <!-- EDIT: link description for Google / Messenger / GC -->
+  <meta name="description" content="Tara na, mga bes! Bonding na ulit. Check the details here. 🐱💕">
+
+  <meta name="theme-color" content="#fff8f6">
+
+  <!-- Open Graph / social sharing preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bonding Tayo! 🐱💕">
+  <meta property="og:description" content="ANO NA THE BEST, BONDING NA ULIT HIHIIH! Tara na, mga bes. 🐾">
+  <!-- EDIT after deploy: use an absolute URL, e.g. https://your-site.netlify.app/assets/og-image.png -->
+  <meta property="og:image" content="assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Cute cat invitation card that says Bonding Tayo!">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bonding Tayo! 🐱💕">
+  <meta name="twitter:description" content="ANO NA THE BEST, BONDING NA ULIT HIHIIH! Tara na, mga bes. 🐾">
+  <meta name="twitter:image" content="assets/og-image.png">
+
+  <!-- Cat emoji favicon (no image file needed) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%B1%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#details">Skip to event details</a>
+
+  <!--
+    Inline SVG cat pattern. This is the built-in fallback background.
+    It becomes hidden automatically if assets/cats-bg.png (or .jpg/.jpeg/.webp)
+    exists, because script.js switches to your own tiled image instead.
+  -->
+  <svg class="bg-pattern" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <defs>
+      <pattern id="cat-pattern" width="420" height="420" patternUnits="userSpaceOnUse">
+        <rect width="420" height="420" fill="#fff8f6"/>
+
+        <!-- Floating heart speech bubbles -->
+        <g opacity="0.85">
+          <g transform="translate(181 44)">
+            <rect width="48" height="33" rx="16.5" fill="#ffe3e8"/>
+            <path d="M14 32 L9 43 L26 32 Z" fill="#ffe3e8"/>
+            <path d="M24 10 C21 7 16 8 16 12 C16 16 24 21 24 21 C24 21 32 16 32 12 C32 8 27 7 24 10 Z" fill="#ff9eae"/>
+          </g>
+          <g transform="translate(181 322)">
+            <rect width="56" height="35" rx="17.5" fill="#ffe3e8"/>
+            <path d="M39 34 L45 44 L29 34 Z" fill="#ffe3e8"/>
+            <path d="M28 10 C25 7 20 8 20 12 C20 16 28 21 28 21 C28 21 36 16 36 12 C36 8 31 7 28 10 Z" fill="#ff9eae"/>
+          </g>
+          <path d="M204 181 C200 177 193 178 193 184 C193 190 204 197 204 197 C204 197 215 190 215 184 C215 178 208 177 204 181 Z" fill="#ffb7c4"/>
+          <path d="M209 234 C207 232 203 233 203 236 C203 239 209 243 209 243 C209 243 215 239 215 236 C215 233 211 232 209 234 Z" fill="#ffb7c4"/>
+        </g>
+
+        <!-- White cat -->
+        <g transform="translate(38 48) rotate(-4 52 52)">
+          <path d="M17 34 L12 7 Q11 1 18 5 L40 22 Z" fill="#fffdfc" stroke="#eadbd6" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M87 34 L92 7 Q93 1 86 5 L64 22 Z" fill="#fffdfc" stroke="#eadbd6" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M20 28 L18 13 L31 23 Z" fill="#ffd3dc"/>
+          <path d="M84 28 L86 13 L73 23 Z" fill="#ffd3dc"/>
+          <ellipse cx="52" cy="50" rx="40" ry="35" fill="#fffdfc" stroke="#eadbd6" stroke-width="2.5"/>
+          <path d="M31 48 q6 -7 12 0" fill="none" stroke="#5b5354" stroke-width="2.7" stroke-linecap="round"/>
+          <path d="M61 48 q6 -7 12 0" fill="none" stroke="#5b5354" stroke-width="2.7" stroke-linecap="round"/>
+          <ellipse cx="26" cy="60" rx="7.5" ry="4.2" fill="#ffb3c0" opacity=".8"/>
+          <ellipse cx="78" cy="60" rx="7.5" ry="4.2" fill="#ffb3c0" opacity=".8"/>
+          <path d="M48 55 Q52 52 56 55 Q54 59 52 59 Q50 59 48 55Z" fill="#f28ba0"/>
+          <path d="M52 59 q0 4 -5 4 M52 59 q0 4 5 4" fill="none" stroke="#5b5354" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M16 53 L5 50 M16 59 L4 62 M88 53 L99 50 M88 59 L100 62" fill="none" stroke="#d9c8c4" stroke-width="1.8" stroke-linecap="round"/>
+        </g>
+
+        <!-- Dark gray cat -->
+        <g transform="translate(278 42) rotate(5 52 52)">
+          <path d="M17 34 L12 7 Q11 1 18 5 L40 22 Z" fill="#5d585e" stroke="#4b464b" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M87 34 L92 7 Q93 1 86 5 L64 22 Z" fill="#5d585e" stroke="#4b464b" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M20 28 L18 13 L31 23 Z" fill="#f6b2c0"/>
+          <path d="M84 28 L86 13 L73 23 Z" fill="#f6b2c0"/>
+          <ellipse cx="52" cy="50" rx="40" ry="35" fill="#5d585e" stroke="#4b464b" stroke-width="2.5"/>
+          <path d="M31 48 q6 -7 12 0" fill="none" stroke="#fffaf7" stroke-width="2.7" stroke-linecap="round"/>
+          <path d="M61 48 q6 -7 12 0" fill="none" stroke="#fffaf7" stroke-width="2.7" stroke-linecap="round"/>
+          <ellipse cx="26" cy="60" rx="7.5" ry="4.2" fill="#ff9eae" opacity=".9"/>
+          <ellipse cx="78" cy="60" rx="7.5" ry="4.2" fill="#ff9eae" opacity=".9"/>
+          <path d="M48 55 Q52 52 56 55 Q54 59 52 59 Q50 59 48 55Z" fill="#ff9eae"/>
+          <path d="M52 59 q0 4 -5 4 M52 59 q0 4 5 4" fill="none" stroke="#fffaf7" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M16 53 L5 50 M16 59 L4 62 M88 53 L99 50 M88 59 L100 62" fill="none" stroke="#9a9299" stroke-width="1.8" stroke-linecap="round"/>
+        </g>
+
+        <!-- Tan cat -->
+        <g transform="translate(42 265) rotate(4 52 52)">
+          <path d="M17 34 L12 7 Q11 1 18 5 L40 22 Z" fill="#d2b48c" stroke="#b8956f" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M87 34 L92 7 Q93 1 86 5 L64 22 Z" fill="#d2b48c" stroke="#b8956f" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M20 28 L18 13 L31 23 Z" fill="#f7b8c4"/>
+          <path d="M84 28 L86 13 L73 23 Z" fill="#f7b8c4"/>
+          <ellipse cx="52" cy="50" rx="40" ry="35" fill="#d2b48c" stroke="#b8956f" stroke-width="2.5"/>
+          <path d="M31 48 q6 -7 12 0" fill="none" stroke="#574c46" stroke-width="2.7" stroke-linecap="round"/>
+          <path d="M61 48 q6 -7 12 0" fill="none" stroke="#574c46" stroke-width="2.7" stroke-linecap="round"/>
+          <ellipse cx="26" cy="60" rx="7.5" ry="4.2" fill="#f28ba0" opacity=".75"/>
+          <ellipse cx="78" cy="60" rx="7.5" ry="4.2" fill="#f28ba0" opacity=".75"/>
+          <path d="M48 55 Q52 52 56 55 Q54 59 52 59 Q50 59 48 55Z" fill="#e9788f"/>
+          <path d="M52 59 q0 4 -5 4 M52 59 q0 4 5 4" fill="none" stroke="#574c46" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M16 53 L5 50 M16 59 L4 62 M88 53 L99 50 M88 59 L100 62" fill="none" stroke="#9c7a56" stroke-width="1.8" stroke-linecap="round"/>
+        </g>
+
+        <!-- Calico cat -->
+        <g transform="translate(277 259) rotate(-5 52 52)">
+          <path d="M17 34 L12 7 Q11 1 18 5 L40 22 Z" fill="#fffdfc" stroke="#e5d5d0" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M87 34 L92 7 Q93 1 86 5 L64 22 Z" fill="#5d585e" stroke="#4b464b" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M20 28 L18 13 L31 23 Z" fill="#ffd3dc"/>
+          <path d="M84 28 L86 13 L73 23 Z" fill="#f6b2c0"/>
+          <ellipse cx="52" cy="50" rx="40" ry="35" fill="#fffdfc" stroke="#e5d5d0" stroke-width="2.5"/>
+          <path d="M19 31 Q25 16 46 18 Q39 31 35 45 Q24 45 19 31 Z" fill="#d2b48c"/>
+          <path d="M69 20 Q86 23 90 39 Q78 43 68 36 Q64 27 69 20 Z" fill="#5d585e"/>
+          <path d="M31 48 q6 -7 12 0" fill="none" stroke="#5b5354" stroke-width="2.7" stroke-linecap="round"/>
+          <path d="M61 48 q6 -7 12 0" fill="none" stroke="#5b5354" stroke-width="2.7" stroke-linecap="round"/>
+          <ellipse cx="26" cy="60" rx="7.5" ry="4.2" fill="#ffb3c0" opacity=".8"/>
+          <ellipse cx="78" cy="60" rx="7.5" ry="4.2" fill="#ffb3c0" opacity=".8"/>
+          <path d="M48 55 Q52 52 56 55 Q54 59 52 59 Q50 59 48 55Z" fill="#f28ba0"/>
+          <path d="M52 59 q0 4 -5 4 M52 59 q0 4 5 4" fill="none" stroke="#5b5354" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M16 53 L5 50 M16 59 L4 62 M88 53 L99 50 M88 59 L100 62" fill="none" stroke="#d9c8c4" stroke-width="1.8" stroke-linecap="round"/>
+        </g>
+
+        <!-- Tiny paw prints -->
+        <g fill="#ffb7c4" opacity=".45">
+          <ellipse cx="159" cy="218" rx="5" ry="4"/>
+          <circle cx="151" cy="210" r="2.5"/>
+          <circle cx="157" cy="206" r="2.5"/>
+          <circle cx="164" cy="207" r="2.5"/>
+          <ellipse cx="379" cy="164" rx="5" ry="4"/>
+          <circle cx="371" cy="156" r="2.5"/>
+          <circle cx="377" cy="152" r="2.5"/>
+          <circle cx="384" cy="153" r="2.5"/>
+        </g>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#cat-pattern)"/>
+  </svg>
+
+  <div class="floating-hearts" aria-hidden="true">
+    <span>💕</span><span>💖</span><span>💗</span><span>🩷</span>
+    <span>💕</span><span>💖</span><span>💗</span><span>🩷</span>
+  </div>
+
+  <main class="site">
+    <!--
+      ============================================================
+      ✏️ EDIT: MAIN INVITATION CONTENT
+      Everything below is safe to rewrite. Keep the ids/classes
+      if you want the styling and share button to keep working.
+      ============================================================
+    -->
+    <article class="invite-card" aria-labelledby="main-title">
+      <header class="hero">
+        <p class="eyebrow"><span aria-hidden="true">🐾</span> You're invited!</p>
+
+        <!-- EDIT: main heading -->
+        <h1 id="main-title">ANO NA THE BEST, BONDING NA ULIT HIHIIH</h1>
+
+        <!-- EDIT: subtitle -->
+        <p class="subtitle">Tara na, dabestt! 🐱💕</p>
+
+        <div class="mascot-row" aria-hidden="true">
+          <div class="mascot mascot--white">
+            <svg class="cat-doodle" viewBox="0 0 104 94" focusable="false">
+              <path class="cat-ear" d="M17 34 L12 7 Q11 1 18 5 L40 22 Z"/>
+              <path class="cat-ear" d="M87 34 L92 7 Q93 1 86 5 L64 22 Z"/>
+              <path class="cat-ear-inner" d="M20 28 L18 13 L31 23 Z"/>
+              <path class="cat-ear-inner" d="M84 28 L86 13 L73 23 Z"/>
+              <ellipse class="cat-face" cx="52" cy="50" rx="40" ry="35"/>
+              <path class="cat-eye" d="M31 48 q6 -7 12 0"/>
+              <path class="cat-eye" d="M61 48 q6 -7 12 0"/>
+              <ellipse class="cat-blush" cx="26" cy="60" rx="7.5" ry="4.2"/>
+              <ellipse class="cat-blush" cx="78" cy="60" rx="7.5" ry="4.2"/>
+              <path class="cat-nose" d="M48 55 Q52 52 56 55 Q54 59 52 59 Q50 59 48 55Z"/>
+              <path class="cat-mouth" d="M52 59 q0 4 -5 4 M52 59 q0 4 5 4"/>
+              <path class="cat-whisker" d="M16 53 L5 50 M16 59 L4 62 M88 53 L99 50 M88 59 L100 62"/>
+            </svg>
+          </div>
+          <div class="mascot mascot--gray">
+            <svg class="cat-doodle" viewBox="0 0 104 94" focusable="false">
+              <path class="cat-ear" d="M17 34 L12 7 Q11 1 18 5 L40 22 Z"/>
+              <path class="cat-ear" d="M87 34 L92 7 Q93 1 86 5 L64 22 Z"/>
+              <path class="cat-ear-inner" d="M20 28 L18 13 L31 23 Z"/>
+              <path class="cat-ear-inner" d="M84 28 L86 13 L73 23 Z"/>
+              <ellipse class="cat-face" cx="52" cy="50" rx="40" ry="35"/>
+              <path class="cat-eye" d="M31 48 q6 -7 12 0"/>
+              <path class="cat-eye" d="M61 48 q6 -7 12 0"/>
+              <ellipse class="cat-blush" cx="26" cy="60" rx="7.5" ry="4.2"/>
+              <ellipse class="cat-blush" cx="78" cy="60" rx="7.5" ry="4.2"/>
+              <path class="cat-nose" d="M48 55 Q52 52 56 55 Q54 59 52 59 Q50 59 48 55Z"/>
+              <path class="cat-mouth" d="M52 59 q0 4 -5 4 M52 59 q0 4 5 4"/>
+              <path class="cat-whisker" d="M16 53 L5 50 M16 59 L4 62 M88 53 L99 50 M88 59 L100 62"/>
+            </svg>
+          </div>
+          <div class="mascot mascot--tan">
+            <svg class="cat-doodle" viewBox="0 0 104 94" focusable="false">
+              <path class="cat-ear" d="M17 34 L12 7 Q11 1 18 5 L40 22 Z"/>
+              <path class="cat-ear" d="M87 34 L92 7 Q93 1 86 5 L64 22 Z"/>
+              <path class="cat-ear-inner" d="M20 28 L18 13 L31 23 Z"/>
+              <path class="cat-ear-inner" d="M84 28 L86 13 L73 23 Z"/>
+              <ellipse class="cat-face" cx="52" cy="50" rx="40" ry="35"/>
+              <path class="cat-eye" d="M31 48 q6 -7 12 0"/>
+              <path class="cat-eye" d="M61 48 q6 -7 12 0"/>
+              <ellipse class="cat-blush" cx="26" cy="60" rx="7.5" ry="4.2"/>
+              <ellipse class="cat-blush" cx="78" cy="60" rx="7.5" ry="4.2"/>
+              <path class="cat-nose" d="M48 55 Q52 52 56 55 Q54 59 52 59 Q50 59 48 55Z"/>
+              <path class="cat-mouth" d="M52 59 q0 4 -5 4 M52 59 q0 4 5 4"/>
+              <path class="cat-whisker" d="M16 53 L5 50 M16 59 L4 62 M88 53 L99 50 M88 59 L100 62"/>
+            </svg>
+          </div>
+          <div class="mascot mascot--calico">
+            <svg class="cat-doodle" viewBox="0 0 104 94" focusable="false">
+              <path class="cat-ear" d="M17 34 L12 7 Q11 1 18 5 L40 22 Z"/>
+              <path class="cat-ear cat-ear--dark" d="M87 34 L92 7 Q93 1 86 5 L64 22 Z"/>
+              <path class="cat-ear-inner" d="M20 28 L18 13 L31 23 Z"/>
+              <path class="cat-ear-inner" d="M84 28 L86 13 L73 23 Z"/>
+              <ellipse class="cat-face" cx="52" cy="50" rx="40" ry="35"/>
+              <path class="cat-patch cat-patch--tan" d="M19 31 Q25 16 46 18 Q39 31 35 45 Q24 45 19 31 Z"/>
+              <path class="cat-patch cat-patch--dark" d="M69 20 Q86 23 90 39 Q78 43 68 36 Q64 27 69 20 Z"/>
+              <path class="cat-eye" d="M31 48 q6 -7 12 0"/>
+              <path class="cat-eye" d="M61 48 q6 -7 12 0"/>
+              <ellipse class="cat-blush" cx="26" cy="60" rx="7.5" ry="4.2"/>
+              <ellipse class="cat-blush" cx="78" cy="60" rx="7.5" ry="4.2"/>
+              <path class="cat-nose" d="M48 55 Q52 52 56 55 Q54 59 52 59 Q50 59 48 55Z"/>
+              <path class="cat-mouth" d="M52 59 q0 4 -5 4 M52 59 q0 4 5 4"/>
+              <path class="cat-whisker" d="M16 53 L5 50 M16 59 L4 62 M88 53 L99 50 M88 59 L100 62"/>
+            </svg>
+          </div>
+        </div>
+      </header>
+
+      <!--
+        ============================================================
+        ✏️ EDIT: EVENT DETAILS
+        Replace the text inside each <dd> below.
+        ============================================================
+      -->
+      <section class="details" id="details" aria-labelledby="details-title">
+        <h2 id="details-title">What to do?</h2>
+        <dl class="details-grid">
+          <div class="detail">
+            <dt><span class="detail-icon" aria-hidden="true">📅</span> Date</dt>
+            <dd>Naway' maging free na ang everyone</dd>
+          </div>
+          <div class="detail">
+            <dt><span class="detail-icon" aria-hidden="true">⏰</span> Time</dt>
+            <dd>Sa tamang oras</dd>
+          </div>
+          <div class="detail">
+            <dt><span class="detail-icon" aria-hidden="true">📍</span> Place</dt>
+          <dd>Kung saan makakasama ang dabest gangzzz!</dd>
+          </div>
+          <div class="detail">
+            <dt><span class="detail-icon" aria-hidden="true">🎒</span> Bring</dt>
+            <dd>Ang sarili</dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- No RSVP needed — just a cute closing note and a share button. -->
+      <section class="see-you" aria-labelledby="see-you-title">
+        <span class="see-you__cat" aria-hidden="true">🐱</span>
+        <h2 id="see-you-title">Kita-kits, mga bes! <span aria-hidden="true">🐾</span></h2>
+        <p> Miss you guysessss!!!! 💕</p>
+      </section>
+
+      <div class="share-row">
+        <button class="btn btn-share" id="share-btn" type="button">
+          <span aria-hidden="true">🔗</span> To: The Best!
+        </button>
+        <p class="share-note" id="share-note" aria-live="polite"></p>
+      </div>
+
+      <footer class="footer">
+        <p>Made with love for the barkada <span aria-hidden="true">🐱</span></p>
+      </footer>
+    </article>
+  </main>
+
+  <div class="celebration-layer" id="celebration-layer" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
